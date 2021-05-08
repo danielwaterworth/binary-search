@@ -31,11 +31,11 @@ pub enum Direction<A, B> {
 pub fn binary_search<X, A, B, F>(
     low: (X, A),
     high: (X, B),
-    f: F,
+    mut f: F,
   ) -> ((X, A), (X, B))
   where
     X: Betweenable,
-    F: Fn(X) -> Direction<A, B> {
+    F: FnMut(X) -> Direction<A, B> {
   match X::between(low.0, high.0) {
     None => {
       (low, high)
