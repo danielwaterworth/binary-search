@@ -1,8 +1,11 @@
 # binary-search
 
-Given a monotone function, find the largest quantity that is too small
-and the smallest quantity that is too large. The first two arguments to
-`binary_search` set the bounds of the search space.
+Binary search is often used to find the position at which a value is located
+within a sorted array. However, the general idea is more broadly applicable
+than that.
+
+Given a function that returns a `Direction` indicating whether the value is too
+low or too high, this library will find the transition point.
 
     use binary_search::{binary_search, Direction};
 
@@ -23,11 +26,11 @@ and the smallest quantity that is too large. The first two arguments to
       dbg!(smallest_high);
     }
 
-You can also provide an associated 'witness' as in this
-example. Witnesses are passed in as well as produced from
-`binary_search`. The arguments act as a proof that the function does
-indeed transition within the range. If you don't know that this is the
-case, you may need to call your function at the bounds first.
+You can also provide an associated 'witness' as in this example. Witnesses are
+passed in as well as produced from `binary_search`. The arguments act as a
+proof that the function does indeed transition within the range. If you don't
+know that this is the case, you may need to call your function at the bounds
+first.
 
     use binary_search::{binary_search, Direction};
 
